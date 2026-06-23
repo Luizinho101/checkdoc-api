@@ -1,0 +1,47 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CheckDoc API",
+    "version": "1.0.0",
+    "description": "API para validação de documentos (CPF, etc.) para fins de portfólio."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor Local"
+    },
+    {
+      "url": "https://seu-projeto-vercel.vercel.app",
+      "description": "Servidor de Produção (Vercel)"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Retorna a mensagem padrão da API",
+        "responses": {
+          "200": {
+            "description": "API funcionando corretamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "online"
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "CheckDoc API está online e operando com sucesso!"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,24 +1,14 @@
 {
   "name": "checkdoc-api",
   "version": "1.0.0",
-  "description": "API Node.js para validação de algoritmos de documentos brasileiros. Verifique a autenticidade de dígitos verificadores de forma rápida e eficiente.",
-  "main": "server.js",
+  "main": "api/index.js",
+  "type": "commonjs",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "start": "node api/index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Luizinho101/checkdoc-api.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Luizinho101/checkdoc-api/issues"
-  },
-  "homepage": "https://github.com/Luizinho101/checkdoc-api#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.22.2",
+    "swagger-jsdoc": "^6.3.0",
+    "swagger-ui-express": "^5.0.1"
   }
 }
