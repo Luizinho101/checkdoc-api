@@ -42,6 +42,60 @@
           }
         }
       }
+    },
+    "/cpf": {
+      "post": {
+        "summary": "Valida um número de CPF",
+        "description": "Recebe o CPF no corpo da requisição e retorna se é válido ou não.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cpf": {
+                    "type": "string",
+                    "example": "43450990721"
+                  }
+                },
+                "required": [
+                  "cpf"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Resultado da validação do CPF",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpf": {
+                      "type": "string",
+                      "example": "43450990721"
+                    },
+                    "valido": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "mensagem": {
+                      "type": "string",
+                      "example": "CPF válido!"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida ou campo CPF ausente"
+          }
+        }
+      }
     }
   }
 }

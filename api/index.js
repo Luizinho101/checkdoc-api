@@ -2,6 +2,7 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const path = require('path');
 
+const { validarCpfController } = require('../src/controllers/cpfController')
 
 const swaggerDocument = require(path.join(__dirname, '../swagger.json'));
 
@@ -17,6 +18,11 @@ app.get('/', (req, res) => {
     message: "CheckDoc API está online e operando com sucesso!" 
   });
 });
+
+
+app.get('/cpf', validarCpfController);
+
+
 
 
 if (process.env.NODE_ENV !== 'production') {
