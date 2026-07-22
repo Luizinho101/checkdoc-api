@@ -2,15 +2,14 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const path = require('path');
 
-const { validarCpfController } = require('../src/controllers/cpfController')
+const { validarCpfController } = require('../src/controllers/cpfController');
 
-const swaggerDocument = require(path.join(__dirname, '../swagger.json'));
+const swaggerDocument = require(path.join(process.cwd(), 'swagger.json'));
 
 const app = express();
 app.use(express.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
 
 app.get('/', (req, res) => {
   res.json({ 
@@ -19,11 +18,7 @@ app.get('/', (req, res) => {
   });
 });
 
-
-app.get('/cpf', validarCpfController);
-
-
-
+app.post('/cpf', validarCpfController);
 
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 3000;
@@ -32,6 +27,5 @@ if (process.env.NODE_ENV !== 'production') {
     console.log(`[DOC] Swagger UI disponível em http://localhost:${PORT}/api-docs`);
   });
 }
-
 
 module.exports = app;
